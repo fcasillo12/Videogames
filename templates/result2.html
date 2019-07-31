@@ -1,0 +1,16 @@
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+</head>
+<form action = "http://localhost:5000/" >
+	<input type = "submit" value = "Ritorna alla home" />
+</form>
+<form action = "http://localhost:5000/imagetwo" method = "POST">
+        <input type = "submit" value = "Mostra vendite totali negli anni" />
+</form>
+<h1>Vendite nei vari paesi di videogiochi {{gnr}} pubblicati da {{publi}} per {{plt}}</h1>
+<table style="width:100%;text-align: center;"><tr><th>Year</th><th>Vendite(mln): NA</th><th>EU</th><th>JA</th><th>Altri</th></tr>
+{% for i in result2 %}
+<tr class="tuple" ><td>{{i._id}}</td><td>{{i.sales0}}</td><td>{{i.sales1}}</td><td>{{i.sales2}}</td><td>{{i.sales3}}</td></tr>
+{% endfor %}
+</table>

@@ -1,0 +1,25 @@
+<form action = "http://localhost:5000/result1" method = "POST">
+        <p>Cerca per genere e/o piattaforma:</p>
+	<select name="platform">
+		<option value="All">All</option>
+                {% for i in e%}
+	               <option value="{{i}}">{{i}}</option>
+                {% endfor %}
+	</select>
+	<select name="genre">
+		<option value="All">All</option>
+                {% for i in g%}
+	               <option value="{{i}}">{{i}}</option>
+                {% endfor %}
+	</select>
+	<input type = "submit" value = "Cerca" />
+</form>
+
+<table style="width:100%;text-align: center;"><tr><th>Nome</th><th>Piattaforma</th><th>Genere</th><th>Editore</th><th>Vendite(mln): NA</th><th>EU</th><th>JA</th><th>Altri</th></tr>
+{% for i in p%}
+{% if (i.EU_Sales>5 ) %}
+	<tr class="tuple"><td>{{i.Name}}</td><td>{{i.Platform}}</td><td>{{i.Genre}}</td><td>{{i.Publisher}}</td><td>{{i.NA_Sales}}</td><td>{{i.EU_Sales}}</td><td>{{i.JP_Sales}}</td><td>{{i.Other_Sales}}</td></tr>
+{% endif %}
+{% endfor %}
+</table>
+

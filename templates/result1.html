@@ -1,0 +1,27 @@
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+<body>
+   <form action = "http://localhost:5000/result2" method = "POST">
+        <p>Filtra per editore:</p>
+	<select name="publisher">
+                {% for i in edit%}
+	               <option value="{{i}}">{{i}}</option>
+                {% endfor %}
+	</select>
+	<input type = "submit" value = "Mostra vendite negli anni" />
+</form>
+<form action = "http://localhost:5000/image" method = "POST">
+        <input type = "submit" value = "Mostra vendite totali di ogni editore" />
+</form>
+<form action = "http://localhost:5000/imagecount" method = "POST">
+        <input type = "submit" value = "Mostra videogiochi per editore" />
+</form>
+<table style="width:100%;text-align: center;"><tr><th>Nome</th><th>Piattaforma</th><th>Genere</th><th>Editore</th><th>Vendite(mln): NA</th><th>EU</th><th>JA</th><th>Altri</th></tr>
+{% for i in result1%}
+<tr class="tuple"><td>{{i.Name}}</td><td>{{i.Platform}}</td><td>{{i.Genre}}</td><td>{{i.Publisher}}</td><td>{{i.NA_Sales}}</td><td>{{i.EU_Sales}}</td><td>{{i.JP_Sales}}</td><td>{{i.Other_Sales}}</td></tr>
+{% endfor %}
+</table>
+</body>
